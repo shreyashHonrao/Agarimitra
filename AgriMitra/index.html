@@ -1,0 +1,1251 @@
+g
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="AgriMitra - India's trusted platform for farmers. Find government schemes, subsidies, and loans. Official links only." />
+  <meta name="theme-color" content="#2E7D32" />
+  <link rel="manifest" href="manifest.json" />
+  <title>AgriMitra | India's Smart Farmer Platform By E-Kisan</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+
+<body>
+
+  <!-- TOP BANNER -->
+  <div class="top-banner top-banner-security">
+    <div class="ticker-track">
+      <i class="fas fa-shield-alt"></i><span data-i18n="banner">This is NOT an official government website. We only
+        provide information and redirect to official government portals.</span> &nbsp;|&nbsp; <i
+        class="fas fa-lock"></i><span>🔒 Your data is 100% secure &amp; encrypted. We never share your personal
+        information with any third party. Your privacy is our priority.</span>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <div class="brand-logo"><img src="logo.svg" alt="AgriMitra Logo" class="brand-logo-img" /></div>
+        <div class="brand-text">
+          <span class="brand-name">AgriMitra</span>
+          <span class="brand-tagline" data-i18n="tagline">Farmer's Digital Bridge By E-Kisan</span>
+        </div>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#schemes" data-i18n="nav_schemes">Schemes</a></li>
+        <li><a href="#subsidies" data-i18n="nav_subsidies">Subsidies</a></li>
+        <li><a href="#loans" data-i18n="nav_loans">Loans</a></li>
+        <li><a href="#tools" data-i18n="nav_tools">Tools</a></li>
+        <li><a href="#advanced-tools"><i class="fas fa-cogs"></i> Advanced</a></li>
+        <li><a href="https://digitalsatbara.mahabhumi.gov.in/dslr" target="_blank" rel="noopener">7/12</a></li>
+        <li><a href="#" onclick="openContactModal();return false;">Contact Us</a></li>
+        <li><a href="#" onclick="toggleTheme();return false;" id="themeToggleNav" title="Toggle Theme"><i
+              class="fas fa-moon" id="themeIcon"></i></a></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="lang-switcher">
+          <button class="lang-btn active" onclick="setLang('en')">EN</button>
+          <button class="lang-btn" onclick="setLang('hi')">हि</button>
+          <button class="lang-btn" onclick="setLang('mr')">म</button>
+        </div>
+        <button class="btn-login" onclick="openLoginModal()"><i class="fas fa-user"></i> <span
+            data-i18n="login">Login</span></button>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-particles" id="heroParticles"></div>
+    <div class="hero-content">
+      <div class="hero-badge"><i class="fas fa-check-circle"></i> <span data-i18n="hero_badge">Official Government
+          Schemes Only</span></div>
+      <h1 class="hero-title" data-i18n="hero_title">India's Smart Platform<br />for Farmers &amp; Government Schemes
+      </h1>
+      <p class="hero-sub" data-i18n="hero_sub">Find schemes, subsidies &amp; loans — all in one place. Only verified
+        official government links.</p>
+      <div class="hero-btns">
+        <a href="#schemes" class="btn-primary"><i class="fas fa-th-large"></i> <span data-i18n="explore_schemes">Explore
+            Schemes</span></a>
+        <a href="#tools" class="btn-secondary"><i class="fas fa-check-square"></i> <span
+            data-i18n="check_eligibility">Check Eligibility</span></a>
+      </div>
+      <div class="hero-search">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search schemes (PM Kisan, subsidy, loan...)"
+            oninput="liveSearch(this.value)" onkeypress="if(event.key==='Enter')doSearch()" />
+          <button onclick="doSearch()">Search</button>
+        </div>
+        <div class="search-results" id="searchResults"></div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num" data-count="10">0</span><span class="stat-label" data-i18n="stat1">Govt
+            Schemes</span></div>
+        <div class="stat"><span class="stat-num" data-count="28">0</span><span class="stat-label"
+            data-i18n="stat2">States Covered</span></div>
+        <div class="stat"><span class="stat-num">100%</span><span class="stat-label" data-i18n="stat3">Official
+            Links</span></div>
+        <div class="stat"><span class="stat-num">₹6000</span><span class="stat-label" data-i18n="stat4">PM
+            Kisan/Year</span></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card-stack">
+        <div class="hcard hcard1" onclick="window.open('https://pmkisan.gov.in','_blank')" style="cursor:pointer">
+          <div class="hcard-icon"><i class="fas fa-rupee-sign"></i></div>
+          <div><strong>PM-KISAN</strong><span>₹6,000/year</span></div>
+        </div>
+        <div class="hcard hcard2" onclick="window.open('https://pmfby.gov.in','_blank')" style="cursor:pointer">
+          <div class="hcard-icon"><i class="fas fa-umbrella"></i></div>
+          <div><strong>Crop Insurance</strong><span>PMFBY Active</span></div>
+        </div>
+        <div class="hcard hcard3" onclick="window.open('https://pmksy.gov.in','_blank')" style="cursor:pointer">
+          <div class="hcard-icon"><i class="fas fa-tint"></i></div>
+          <div><strong>Irrigation</strong><span>55% Subsidy</span></div>
+        </div>
+        <div class="hcard hcard4" onclick="window.open('https://www.myscheme.gov.in','_blank')" style="cursor:pointer">
+          <div class="hcard-icon"><i class="fas fa-credit-card"></i></div>
+          <div><strong>KCC Loan</strong><span>~4% Interest</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEMES SECTION -->
+  <section class="section" id="schemes">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge"><i class="fas fa-landmark"></i> <span data-i18n="schemes_badge">Government
+            Schemes</span></div>
+        <h2 data-i18n="schemes_title">Central Government Agricultural Schemes</h2>
+        <p data-i18n="schemes_sub">All schemes redirect to official .gov.in portals only</p>
+      </div>
+      <div class="schemes-grid">
+        <div class="scheme-card" onclick="openScheme('pmkisan')">
+          <div class="scheme-icon" style="background:linear-gradient(135deg,#2E7D32,#66BB6A)"><i
+              class="fas fa-hand-holding-usd"></i></div>
+          <div class="scheme-body">
+            <span class="scheme-tag">Income Support</span>
+            <h3>PM-KISAN</h3>
+            <p data-i18n="pmkisan_desc">₹6,000/year direct income support to small &amp; marginal farmers in 3
+              installments of ₹2,000.</p>
+            <div class="scheme-meta"><span><i class="fas fa-users"></i> All farmers</span><span><i
+                  class="fas fa-map-marker-alt"></i> Pan India</span></div>
+            <div class="btn-details"><span data-i18n="view_details">View Details</span> <i
+                class="fas fa-arrow-right"></i></div>
+          </div>
+        </div>
+        <div class="scheme-card" onclick="openScheme('pmfby')">
+          <div class="scheme-icon" style="background:linear-gradient(135deg,#1565C0,#42A5F5)"><i
+              class="fas fa-umbrella"></i></div>
+          <div class="scheme-body">
+            <span class="scheme-tag">Crop Insurance</span>
+            <h3>PM Fasal Bima Yojana</h3>
+            <p data-i18n="pmfby_desc">Crop insurance against drought, floods, pests &amp; natural calamities at minimal
+              premium.</p>
+            <div class="scheme-meta"><span><i class="fas fa-users"></i> All farmers</span><span><i
+                  class="fas fa-map-marker-alt"></i> Pan India</span></div>
+            <div class="btn-details"><span data-i18n="view_details">View Details</span> <i
+                class="fas fa-arrow-right"></i></div>
+          </div>
+        </div>
+        <div class="scheme-card" onclick="openScheme('kcc')">
+          <div class="scheme-icon" style="background:linear-gradient(135deg,#E65100,#FFA726)"><i
+              class="fas fa-credit-card"></i></div>
+          <div class="scheme-body">
+            <span class="scheme-tag">Credit Card</span>
+            <h3>Kisan Credit Card</h3>
+            <p data-i18n="kcc_desc">Short-term credit for crop cultivation, post-harvest expenses &amp; allied
+              activities at low interest.</p>
+            <div class="scheme-meta"><span><i class="fas fa-users"></i> Farmers &amp; fishermen</span><span><i
+                  class="fas fa-map-marker-alt"></i> Pan India</span></div>
+            <div class="btn-details"><span data-i18n="view_details">View Details</span> <i
+                class="fas fa-arrow-right"></i></div>
+          </div>
+        </div>
+        <div class="scheme-card" onclick="openScheme('soilhealth')">
+          <div class="scheme-icon" style="background:linear-gradient(135deg,#6D4C41,#A1887F)"><i
+              class="fas fa-flask"></i></div>
+          <div class="scheme-body">
+            <span class="scheme-tag">Soil Testing</span>
+            <h3>Soil Health Card</h3>
+            <p data-i18n="soil_desc">Free soil testing &amp; health card with crop-wise fertilizer recommendations for
+              better yield.</p>
+            <div class="scheme-meta"><span><i class="fas fa-users"></i> All farmers</span><span><i
+                  class="fas fa-map-marker-alt"></i> Pan India</span></div>
+            <div class="btn-details"><span data-i18n="view_details">View Details</span> <i
+                class="fas fa-arrow-right"></i></div>
+          </div>
+        </div>
+        <div class="scheme-card" onclick="openScheme('pmksy')">
+          <div class="scheme-icon" style="background:linear-gradient(135deg,#00695C,#26A69A)"><i
+              class="fas fa-tint"></i></div>
+          <div class="scheme-body">
+            <span class="scheme-tag">Irrigation</span>
+            <h3>PM Krishi Sinchai Yojana</h3>
+            <p data-i18n="pmksy_desc">Har Khet Ko Pani — ensuring irrigation access to every farm with micro-irrigation
+              support.</p>
+            <div class="scheme-meta"><span><i class="fas fa-users"></i> All farmers</span><span><i
+                  class="fas fa-map-marker-alt"></i> Pan India</span></div>
+            <div class="btn-details"><span data-i18n="view_details">View Details</span> <i
+                class="fas fa-arrow-right"></i></div>
+          </div>
+        </div>
+        <div class="scheme-card" onclick="openScheme('enam')">
+          <div class="scheme-icon" style="background:linear-gradient(135deg,#4527A0,#7E57C2)"><i
+              class="fas fa-store"></i></div>
+          <div class="scheme-body">
+            <span class="scheme-tag">Market Access</span>
+            <h3>e-NAM</h3>
+            <p data-i18n="enam_desc">National Agriculture Market — online trading platform for better price discovery
+              for farmers.</p>
+            <div class="scheme-meta"><span><i class="fas fa-users"></i> All farmers</span><span><i
+                  class="fas fa-map-marker-alt"></i> Pan India</span></div>
+            <div class="btn-details"><span data-i18n="view_details">View Details</span> <i
+                class="fas fa-arrow-right"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBSIDIES SECTION -->
+  <section class="section section-alt" id="subsidies">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge"><i class="fas fa-tags"></i> <span data-i18n="sub_badge">Subsidies</span></div>
+        <h2 data-i18n="sub_title">Government Subsidies for Farmers</h2>
+        <p data-i18n="sub_sub">State-wise officially announced subsidies. Maharashtra farmers — check MahaDBT portal.
+        </p>
+      </div>
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterSubsidy('all',this)">All</button>
+        <button class="filter-btn" onclick="filterSubsidy('seeds',this)">Seeds</button>
+        <button class="filter-btn" onclick="filterSubsidy('fertilizer',this)">Fertilizer</button>
+        <button class="filter-btn" onclick="filterSubsidy('irrigation',this)">Irrigation</button>
+        <button class="filter-btn" onclick="filterSubsidy('equipment',this)">Equipment</button>
+        <button class="filter-btn" onclick="filterSubsidy('maharashtra',this)">Maharashtra</button>
+      </div>
+      <div class="subsidy-grid" id="subsidyGrid">
+        <div class="subsidy-card" data-cat="irrigation">
+          <div class="subsidy-icon"><i class="fas fa-water"></i></div>
+          <div class="subsidy-info"><span class="subsidy-cat">Irrigation</span>
+            <h4>Drip &amp; Sprinkler Irrigation Subsidy</h4>
+            <p>Up to 55% subsidy on micro-irrigation systems under PMKSY</p><a href="https://pmksy.gov.in"
+              target="_blank" rel="noopener" class="subsidy-link"><i class="fas fa-external-link-alt"></i>
+              pmksy.gov.in</a>
+          </div>
+        </div>
+        <div class="subsidy-card" data-cat="fertilizer">
+          <div class="subsidy-icon"><i class="fas fa-leaf"></i></div>
+          <div class="subsidy-info"><span class="subsidy-cat">Fertilizer</span>
+            <h4>Fertilizer Subsidy (Urea &amp; DAP)</h4>
+            <p>Government-controlled MRP on urea &amp; DAP fertilizers for all farmers</p><a
+              href="https://www.india.gov.in/topics/agriculture" target="_blank" rel="noopener" class="subsidy-link"><i
+                class="fas fa-external-link-alt"></i> india.gov.in</a>
+          </div>
+        </div>
+        <div class="subsidy-card" data-cat="seeds">
+          <div class="subsidy-icon"><i class="fas fa-seedling"></i></div>
+          <div class="subsidy-info"><span class="subsidy-cat">Seeds</span>
+            <h4>Certified Seed Subsidy</h4>
+            <p>Subsidized certified seeds distributed through state agriculture departments</p><a
+              href="https://krishi.maharashtra.gov.in" target="_blank" rel="noopener" class="subsidy-link"><i
+                class="fas fa-external-link-alt"></i> krishi.maharashtra.gov.in</a>
+          </div>
+        </div>
+        <div class="subsidy-card" data-cat="equipment">
+          <div class="subsidy-icon"><i class="fas fa-tractor"></i></div>
+          <div class="subsidy-info"><span class="subsidy-cat">Equipment</span>
+            <h4>Farm Mechanization Subsidy</h4>
+            <p>Subsidy on tractors, power tillers &amp; farm equipment under SMAM scheme</p><a
+              href="https://agrimachinery.nic.in" target="_blank" rel="noopener" class="subsidy-link"><i
+                class="fas fa-external-link-alt"></i> agrimachinery.nic.in</a>
+          </div>
+        </div>
+        <div class="subsidy-card" data-cat="maharashtra">
+          <div class="subsidy-icon mh-icon"><i class="fas fa-star"></i></div>
+          <div class="subsidy-info"><span class="subsidy-cat mh-cat">Maharashtra</span>
+            <h4>MahaDBT Farmer Subsidies</h4>
+            <p>All Maharashtra state subsidies — seeds, equipment, irrigation — apply via MahaDBT portal</p><a
+              href="https://mahadbt.maharashtra.gov.in" target="_blank" rel="noopener" class="subsidy-link"><i
+                class="fas fa-external-link-alt"></i> mahadbt.maharashtra.gov.in</a>
+          </div>
+        </div>
+        <div class="subsidy-card" data-cat="maharashtra seeds">
+          <div class="subsidy-icon mh-icon"><i class="fas fa-hand-holding-water"></i></div>
+          <div class="subsidy-info"><span class="subsidy-cat mh-cat">Maharashtra</span>
+            <h4>Maharashtra Agriculture Dept Schemes</h4>
+            <p>State-specific schemes for Maharashtra farmers — crop support, input subsidy &amp; more</p><a
+              href="https://krishi.maharashtra.gov.in" target="_blank" rel="noopener" class="subsidy-link"><i
+                class="fas fa-external-link-alt"></i> krishi.maharashtra.gov.in</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOANS SECTION -->
+  <section class="section" id="loans">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge"><i class="fas fa-university"></i> <span data-i18n="loan_badge">Government-Backed
+            Loans</span></div>
+        <h2 data-i18n="loan_title">Agricultural Loan Schemes</h2>
+        <p data-i18n="loan_sub">Only government-backed loan frameworks. No private bank direct links.</p>
+      </div>
+      <div class="loans-grid">
+        <div class="loan-card">
+          <div class="loan-header">
+            <div class="loan-icon"><i class="fas fa-credit-card"></i></div>
+            <div>
+              <h3>Kisan Credit Card (KCC)</h3><span class="loan-tag">Short-term Credit</span>
+            </div>
+          </div>
+          <div class="loan-details">
+            <div class="loan-detail"><i class="fas fa-percent"></i><span>Interest: ~4% p.a. (with subvention)</span>
+            </div>
+            <div class="loan-detail"><i class="fas fa-rupee-sign"></i><span>Up to ₹3 lakh (short-term)</span></div>
+            <div class="loan-detail"><i class="fas fa-check"></i><span>All farmers, sharecroppers, SHGs</span></div>
+          </div>
+          <a href="https://www.myscheme.gov.in" target="_blank" rel="noopener" class="btn-apply"><i
+              class="fas fa-external-link-alt"></i> Apply via myscheme.gov.in</a>
+        </div>
+        <div class="loan-card">
+          <div class="loan-header">
+            <div class="loan-icon"><i class="fas fa-building"></i></div>
+            <div>
+              <h3>NABARD Rural Finance</h3><span class="loan-tag">Rural Development</span>
+            </div>
+          </div>
+          <div class="loan-details">
+            <div class="loan-detail"><i class="fas fa-percent"></i><span>Varies by scheme &amp; bank</span></div>
+            <div class="loan-detail"><i class="fas fa-rupee-sign"></i><span>As per project requirement</span></div>
+            <div class="loan-detail"><i class="fas fa-check"></i><span>Farmers, FPOs, cooperatives</span></div>
+          </div>
+          <a href="https://www.nabard.org" target="_blank" rel="noopener" class="btn-apply"><i
+              class="fas fa-external-link-alt"></i> Visit nabard.org</a>
+        </div>
+        <div class="loan-card">
+          <div class="loan-header">
+            <div class="loan-icon"><i class="fas fa-warehouse"></i></div>
+            <div>
+              <h3>Agriculture Infrastructure Fund</h3><span class="loan-tag">Infrastructure</span>
+            </div>
+          </div>
+          <div class="loan-details">
+            <div class="loan-detail"><i class="fas fa-percent"></i><span>3% interest subvention</span></div>
+            <div class="loan-detail"><i class="fas fa-rupee-sign"></i><span>₹2 lakh – ₹2 crore</span></div>
+            <div class="loan-detail"><i class="fas fa-check"></i><span>FPOs, PACS, Agri-entrepreneurs</span></div>
+          </div>
+          <a href="https://agriinfra.dac.gov.in" target="_blank" rel="noopener" class="btn-apply"><i
+              class="fas fa-external-link-alt"></i> agriinfra.dac.gov.in</a>
+        </div>
+      </div>
+      <div class="loan-disclaimer"><i class="fas fa-info-circle"></i><span data-i18n="loan_disclaimer">AgriMitra does
+          not provide loans. All applications are processed through official government portals and authorized banks
+          only.</span></div>
+    </div>
+  </section>
+
+  <!-- SMART TOOLS SECTION -->
+  <section class="section section-alt" id="tools">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge"><i class="fas fa-tools"></i> <span data-i18n="tools_badge">Smart Tools</span></div>
+        <h2 data-i18n="tools_title">Farmer Smart Tools</h2>
+        <p data-i18n="tools_sub">Guidance tools only — not official approvals</p>
+      </div>
+      <div class="tools-tabs">
+        <button class="tool-tab active" onclick="switchTool('emi',this)"><i class="fas fa-calculator"></i> EMI
+          Calculator</button>
+        <button class="tool-tab" onclick="switchTool('eligibility',this)"><i class="fas fa-check-circle"></i>
+          Eligibility Checker</button>
+        <button class="tool-tab" onclick="switchTool('recommend',this)"><i class="fas fa-magic"></i> Scheme
+          Recommender</button>
+      </div>
+
+      <div class="tool-panel active" id="tool-emi">
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-icon"><i class="fas fa-calculator"></i></div>
+            <div>
+              <h3>Loan EMI Calculator</h3>
+              <p>Calculate your monthly installment for any agricultural loan</p>
+            </div>
+          </div>
+          <div class="tool-form">
+            <div class="form-row">
+              <div class="form-group"><label>Loan Amount (₹)</label><input type="number" id="loanAmount"
+                  placeholder="e.g. 100000" min="1000" /></div>
+              <div class="form-group"><label>Interest Rate (% per annum)</label><input type="number" id="interestRate"
+                  placeholder="e.g. 4" step="0.1" min="0.1" /></div>
+              <div class="form-group"><label>Tenure (months)</label><input type="number" id="tenure"
+                  placeholder="e.g. 12" min="1" /></div>
+            </div>
+            <button class="btn-calc" onclick="calcEMI()"><i class="fas fa-calculator"></i> Calculate EMI</button>
+          </div>
+          <div class="emi-result" id="emiResult"></div>
+        </div>
+      </div>
+
+      <div class="tool-panel" id="tool-eligibility">
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-icon" style="background:linear-gradient(135deg,#1565C0,#42A5F5)"><i
+                class="fas fa-check-circle"></i></div>
+            <div>
+              <h3>Scheme Eligibility Checker</h3>
+              <p>Find out which government schemes you qualify for</p>
+            </div>
+          </div>
+          <div class="tool-form">
+            <div class="form-row">
+              <div class="form-group"><label>Land Holding (acres)</label><input type="number" id="landHolding"
+                  placeholder="e.g. 2.5" step="0.1" min="0" /></div>
+              <div class="form-group"><label>State</label>
+                <select id="stateSelect">
+                  <option value="">Select State</option>
+                  <option value="maharashtra">Maharashtra</option>
+                  <option value="up">Uttar Pradesh</option>
+                  <option value="punjab">Punjab</option>
+                  <option value="mp">Madhya Pradesh</option>
+                  <option value="rajasthan">Rajasthan</option>
+                  <option value="other">Other State</option>
+                </select>
+              </div>
+              <div class="form-group"><label>Farmer Category</label>
+                <select id="farmerType">
+                  <option value="marginal">Marginal (below 1 acre)</option>
+                  <option value="small">Small (1–2 acres)</option>
+                  <option value="medium">Medium (2–10 acres)</option>
+                  <option value="large">Large (above 10 acres)</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn-calc" onclick="checkEligibility()"><i class="fas fa-search"></i> Check
+              Eligibility</button>
+          </div>
+          <div class="elig-result" id="eligResult"></div>
+        </div>
+      </div>
+
+      <div class="tool-panel" id="tool-recommend">
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-icon" style="background:linear-gradient(135deg,#4527A0,#7E57C2)"><i
+                class="fas fa-magic"></i></div>
+            <div>
+              <h3>AI Scheme Recommender</h3>
+              <p>Get personalized scheme recommendations based on your profile</p>
+            </div>
+          </div>
+          <div class="tool-form">
+            <div class="form-row">
+              <div class="form-group"><label>Primary Crop</label>
+                <select id="cropType">
+                  <option value="rice">Rice / Paddy</option>
+                  <option value="wheat">Wheat</option>
+                  <option value="cotton">Cotton</option>
+                  <option value="sugarcane">Sugarcane</option>
+                  <option value="vegetables">Vegetables</option>
+                  <option value="fruits">Fruits / Horticulture</option>
+                  <option value="pulses">Pulses / Dal</option>
+                </select>
+              </div>
+              <div class="form-group"><label>Primary Need</label>
+                <select id="farmerNeed">
+                  <option value="income">Income Support</option>
+                  <option value="insurance">Crop Insurance</option>
+                  <option value="credit">Credit / Loan</option>
+                  <option value="irrigation">Irrigation</option>
+                  <option value="market">Market Access</option>
+                  <option value="soil">Soil Health</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn-calc" onclick="recommendScheme()"><i class="fas fa-magic"></i> Get
+              Recommendations</button>
+          </div>
+          <div class="rec-result" id="recResult"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADVANCED TOOLS SECTION -->
+  <section class="section" id="advanced-tools">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge"><i class="fas fa-cogs"></i> Advanced Tools</div>
+        <h2>Advanced Farmer Tools</h2>
+        <p>Powerful calculators, AI analysis &amp; smart utilities for modern farming</p>
+      </div>
+      <div class="adv-tools-tabs">
+        <button class="adv-tab active" onclick="switchAdvTab('adv-profit',this)"><i class="fas fa-chart-line"></i>
+          Profit/Loss</button>
+        <button class="adv-tab" onclick="switchAdvTab('adv-msp',this)"><i class="fas fa-rupee-sign"></i> MSP
+          Lookup</button>
+        <button class="adv-tab" onclick="switchAdvTab('adv-fert',this)"><i class="fas fa-leaf"></i> Fertilizer</button>
+        <button class="adv-tab" onclick="switchAdvTab('adv-area',this)"><i class="fas fa-ruler-combined"></i> Area
+          Convert</button>
+        <button class="adv-tab" onclick="switchAdvTab('adv-water',this)"><i class="fas fa-tint"></i> Water Req.</button>
+        <button class="adv-tab" onclick="switchAdvTab('adv-weather',this)"><i class="fas fa-cloud-sun"></i>
+          Weather</button>
+        <button class="adv-tab" onclick="switchAdvTab('adv-compare',this)"><i class="fas fa-balance-scale"></i>
+          Compare</button>
+        <button class="adv-tab" onclick="switchAdvTab('adv-mandi',this)"><i class="fas fa-chart-bar"></i> Mandi
+          Trend</button>
+        <button class="adv-tab" onclick="switchAdvTab('adv-yield',this)"><i class="fas fa-seedling"></i> Yield
+          Predict</button>
+        <button class="adv-tab" onclick="switchAdvTab('adv-risk',this)"><i class="fas fa-shield-alt"></i> Loan
+          Risk</button>
+        <button class="adv-tab" onclick="switchAdvTab('adv-fraud',this)"><i class="fas fa-ban"></i> Fraud Check</button>
+      </div>
+
+      <!-- PROFIT/LOSS -->
+      <div class="adv-panel active" id="adv-profit">
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-icon" style="background:linear-gradient(135deg,#2E7D32,#66BB6A)"><i
+                class="fas fa-chart-line"></i></div>
+            <div>
+              <h3>Crop Profit / Loss Calculator</h3>
+              <p>Calculate expected profit based on area, cost, yield and MSP</p>
+            </div>
+          </div>
+          <div class="tool-form">
+            <div class="form-row">
+              <div class="form-group"><label>Land Area (acres)</label><input type="number" id="cpArea"
+                  placeholder="e.g. 2" min="0.1" step="0.1" /></div>
+              <div class="form-group"><label>Input Cost per Acre (₹)</label><input type="number" id="cpInputCost"
+                  placeholder="e.g. 15000" min="0" /></div>
+              <div class="form-group"><label>Expected Yield (quintals/acre)</label><input type="number" id="cpYield"
+                  placeholder="e.g. 20" min="0" step="0.1" /></div>
+              <div class="form-group"><label>Selling Price / MSP (₹/quintal)</label><input type="number" id="cpMSP"
+                  placeholder="e.g. 2300" min="0" /></div>
+            </div>
+            <button class="btn-calc" onclick="calcCropProfit()"><i class="fas fa-calculator"></i> Calculate
+              Profit/Loss</button>
+          </div>
+          <div class="emi-result" id="cpResult"></div>
+        </div>
+      </div>
+
+      <!-- MSP LOOKUP -->
+      <div class="adv-panel" id="adv-msp">
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-icon" style="background:linear-gradient(135deg,#E65100,#FFA726)"><i
+                class="fas fa-rupee-sign"></i></div>
+            <div>
+              <h3>MSP Lookup</h3>
+              <p>Check Minimum Support Price for your crop (2024-25)</p>
+            </div>
+          </div>
+          <div class="tool-form">
+            <div class="form-row">
+              <div class="form-group"><label>Select Crop</label>
+                <select id="mspCrop">
+                  <option value="rice">Rice / Paddy</option>
+                  <option value="wheat">Wheat</option>
+                  <option value="cotton">Cotton</option>
+                  <option value="sugarcane">Sugarcane</option>
+                  <option value="maize">Maize</option>
+                  <option value="soybean">Soybean</option>
+                  <option value="tur">Tur (Arhar)</option>
+                  <option value="moong">Moong</option>
+                  <option value="groundnut">Groundnut</option>
+                  <option value="onion">Onion</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn-calc" onclick="lookupMSP()"><i class="fas fa-search"></i> Get MSP</button>
+          </div>
+          <div class="emi-result" id="mspResult"></div>
+        </div>
+      </div>
+
+      <!-- FERTILIZER -->
+      <div class="adv-panel" id="adv-fert">
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-icon" style="background:linear-gradient(135deg,#6D4C41,#A1887F)"><i
+                class="fas fa-leaf"></i></div>
+            <div>
+              <h3>Fertilizer Dose Calculator</h3>
+              <p>Get ICAR-recommended fertilizer quantities for your crop and area</p>
+            </div>
+          </div>
+          <div class="tool-form">
+            <div class="form-row">
+              <div class="form-group"><label>Crop</label>
+                <select id="fertCrop">
+                  <option value="rice">Rice</option>
+                  <option value="wheat">Wheat</option>
+                  <option value="cotton">Cotton</option>
+                  <option value="sugarcane">Sugarcane</option>
+                  <option value="maize">Maize</option>
+                  <option value="soybean">Soybean</option>
+                  <option value="vegetables">Vegetables</option>
+                  <option value="pulses">Pulses</option>
+                </select>
+              </div>
+              <div class="form-group"><label>Area (acres)</label><input type="number" id="fertArea" placeholder="e.g. 2"
+                  min="0.1" step="0.1" /></div>
+            </div>
+            <button class="btn-calc" onclick="calcFertilizer()"><i class="fas fa-leaf"></i> Calculate Dose</button>
+          </div>
+          <div class="emi-result" id="fertResult"></div>
+        </div>
+      </div>
+
+      <!-- AREA CONVERTER -->
+      <div class="adv-panel" id="adv-area">
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-icon" style="background:linear-gradient(135deg,#1565C0,#42A5F5)"><i
+                class="fas fa-ruler-combined"></i></div>
+            <div>
+              <h3>Land Area Converter</h3>
+              <p>Convert between acres, hectares, guntha, bigha and sq. feet</p>
+            </div>
+          </div>
+          <div class="tool-form">
+            <div class="form-row">
+              <div class="form-group"><label>Value</label><input type="number" id="areaVal" placeholder="e.g. 2.5"
+                  min="0" step="0.001" /></div>
+              <div class="form-group"><label>From Unit</label>
+                <select id="areaFrom">
+                  <option value="acres">Acres</option>
+                  <option value="hectares">Hectares</option>
+                  <option value="guntha">Guntha</option>
+                  <option value="bigha">Bigha</option>
+                  <option value="sqft">Sq. Feet</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn-calc" onclick="convertArea()"><i class="fas fa-exchange-alt"></i> Convert</button>
+          </div>
+          <div class="emi-result" id="areaResult"></div>
+        </div>
+      </div>
+
+      <!-- WATER REQUIREMENT -->
+      <div class="adv-panel" id="adv-water">
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-icon" style="background:linear-gradient(135deg,#00695C,#26A69A)"><i
+                class="fas fa-tint"></i></div>
+            <div>
+              <h3>Water Requirement Calculator</h3>
+              <p>Estimate seasonal water needs for your crop and area</p>
+            </div>
+          </div>
+          <div class="tool-form">
+            <div class="form-row">
+              <div class="form-group"><label>Crop</label>
+                <select id="waterCrop">
+                  <option value="rice">Rice</option>
+                  <option value="wheat">Wheat</option>
+                  <option value="cotton">Cotton</option>
+                  <option value="sugarcane">Sugarcane</option>
+                  <option value="maize">Maize</option>
+                  <option value="vegetables">Vegetables</option>
+                  <option value="pulses">Pulses</option>
+                </select>
+              </div>
+              <div class="form-group"><label>Area (acres)</label><input type="number" id="waterArea"
+                  placeholder="e.g. 2" min="0.1" step="0.1" /></div>
+              <div class="form-group"><label>Season</label>
+                <select id="waterSeason">
+                  <option value="kharif">Kharif</option>
+                  <option value="rabi">Rabi</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn-calc" onclick="calcWater()"><i class="fas fa-tint"></i> Calculate</button>
+          </div>
+          <div class="emi-result" id="waterResult"></div>
+        </div>
+      </div>
+
+      <!-- WEATHER -->
+      <div class="adv-panel" id="adv-weather">
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-icon" style="background:linear-gradient(135deg,#1565C0,#42A5F5)"><i
+                class="fas fa-cloud-sun"></i></div>
+            <div>
+              <h3>Weather &amp; Crop Advisory</h3>
+              <p>Get real-time weather and farming advisory for your location</p>
+            </div>
+          </div>
+          <div class="tool-form">
+            <div class="form-row">
+              <div class="form-group"><label>City / District Name</label><input type="text" id="weatherCity"
+                  placeholder="e.g. Pune, Nashik, Latur" /></div>
+            </div>
+            <button class="btn-calc" onclick="fetchWeather()"><i class="fas fa-cloud-sun"></i> Get Weather</button>
+          </div>
+          <div class="emi-result" id="weatherResult"></div>
+        </div>
+      </div>
+
+      <!-- SCHEME COMPARE -->
+      <div class="adv-panel" id="adv-compare">
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-icon" style="background:linear-gradient(135deg,#4527A0,#7E57C2)"><i
+                class="fas fa-balance-scale"></i></div>
+            <div>
+              <h3>Scheme Comparison Tool</h3>
+              <p>Compare two government schemes side by side</p>
+            </div>
+          </div>
+          <div class="tool-form">
+            <div class="form-row">
+              <div class="form-group"><label>Scheme 1</label>
+                <select id="cmpScheme1">
+                  <option value="pmkisan">PM-KISAN</option>
+                  <option value="pmfby">PM Fasal Bima</option>
+                  <option value="kcc">Kisan Credit Card</option>
+                  <option value="soilhealth">Soil Health Card</option>
+                  <option value="pmksy">PM Krishi Sinchai</option>
+                  <option value="enam">e-NAM</option>
+                </select>
+              </div>
+              <div class="form-group"><label>Scheme 2</label>
+                <select id="cmpScheme2">
+                  <option value="pmfby">PM Fasal Bima</option>
+                  <option value="pmkisan">PM-KISAN</option>
+                  <option value="kcc">Kisan Credit Card</option>
+                  <option value="soilhealth">Soil Health Card</option>
+                  <option value="pmksy">PM Krishi Sinchai</option>
+                  <option value="enam">e-NAM</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn-calc" onclick="compareSchemes()"><i class="fas fa-balance-scale"></i> Compare</button>
+          </div>
+          <div class="emi-result" id="cmpResult"></div>
+        </div>
+      </div>
+
+      <!-- MANDI TREND -->
+      <div class="adv-panel" id="adv-mandi">
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-icon" style="background:linear-gradient(135deg,#E65100,#FFA726)"><i
+                class="fas fa-chart-bar"></i></div>
+            <div>
+              <h3>Mandi Price Trend</h3>
+              <p>Historical price trends to find the best time to sell your crop</p>
+            </div>
+          </div>
+          <div class="tool-form">
+            <div class="form-row">
+              <div class="form-group"><label>Crop</label>
+                <select id="mandiCrop">
+                  <option value="rice">Rice</option>
+                  <option value="wheat">Wheat</option>
+                  <option value="cotton">Cotton</option>
+                  <option value="soybean">Soybean</option>
+                  <option value="onion">Onion</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn-calc" onclick="showMandiTrend()"><i class="fas fa-chart-bar"></i> Show Trend</button>
+          </div>
+          <div class="emi-result" id="mandiResult"></div>
+        </div>
+      </div>
+
+      <!-- YIELD PREDICTION -->
+      <div class="adv-panel" id="adv-yield">
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-icon" style="background:linear-gradient(135deg,#2E7D32,#66BB6A)"><i
+                class="fas fa-seedling"></i></div>
+            <div>
+              <h3>Crop Yield Prediction</h3>
+              <p>AI-based yield estimate based on soil, irrigation and crop type</p>
+            </div>
+          </div>
+          <div class="tool-form">
+            <div class="form-row">
+              <div class="form-group"><label>Crop</label>
+                <select id="yieldCrop">
+                  <option value="rice">Rice</option>
+                  <option value="wheat">Wheat</option>
+                  <option value="cotton">Cotton</option>
+                  <option value="sugarcane">Sugarcane</option>
+                  <option value="maize">Maize</option>
+                  <option value="soybean">Soybean</option>
+                  <option value="vegetables">Vegetables</option>
+                  <option value="pulses">Pulses</option>
+                </select>
+              </div>
+              <div class="form-group"><label>Area (acres)</label><input type="number" id="yieldArea"
+                  placeholder="e.g. 2" min="0.1" step="0.1" /></div>
+              <div class="form-group"><label>Soil Type</label>
+                <select id="yieldSoil">
+                  <option value="black">Black (Regur)</option>
+                  <option value="alluvial">Alluvial</option>
+                  <option value="loamy">Loamy</option>
+                  <option value="red">Red</option>
+                  <option value="sandy">Sandy</option>
+                </select>
+              </div>
+              <div class="form-group"><label>Irrigation Type</label>
+                <select id="yieldIrrigation">
+                  <option value="drip">Drip Irrigation</option>
+                  <option value="sprinkler">Sprinkler</option>
+                  <option value="flood">Flood/Canal</option>
+                  <option value="rainfed">Rain-fed</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn-calc" onclick="predictYield()"><i class="fas fa-robot"></i> Predict Yield</button>
+          </div>
+          <div class="emi-result" id="yieldResult"></div>
+        </div>
+      </div>
+
+      <!-- LOAN RISK -->
+      <div class="adv-panel" id="adv-risk">
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-icon" style="background:linear-gradient(135deg,#1565C0,#42A5F5)"><i
+                class="fas fa-shield-alt"></i></div>
+            <div>
+              <h3>Loan Repayment Risk Predictor</h3>
+              <p>Assess your loan repayment capacity before applying</p>
+            </div>
+          </div>
+          <div class="tool-form">
+            <div class="form-row">
+              <div class="form-group"><label>Annual Farm Income (₹)</label><input type="number" id="riskIncome"
+                  placeholder="e.g. 120000" min="0" /></div>
+              <div class="form-group"><label>Loan Amount (₹)</label><input type="number" id="riskLoan"
+                  placeholder="e.g. 100000" min="0" /></div>
+              <div class="form-group"><label>Land Holding (acres)</label><input type="number" id="riskLand"
+                  placeholder="e.g. 2" min="0.1" step="0.1" /></div>
+            </div>
+            <button class="btn-calc" onclick="predictLoanRisk()"><i class="fas fa-shield-alt"></i> Assess Risk</button>
+          </div>
+          <div class="emi-result" id="riskResult"></div>
+        </div>
+      </div>
+
+      <!-- FRAUD CHECK -->
+      <div class="adv-panel" id="adv-fraud">
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-icon" style="background:linear-gradient(135deg,#E53935,#EF9A9A)"><i
+                class="fas fa-ban"></i></div>
+            <div>
+              <h3>Fraud Link Checker</h3>
+              <p>Verify if a website URL is a trusted government portal</p>
+            </div>
+          </div>
+          <div class="tool-form">
+            <div class="form-row">
+              <div class="form-group"><label>Website URL to Check</label><input type="text" id="fraudUrl"
+                  placeholder="e.g. pmkisan.gov.in or paste any URL" /></div>
+            </div>
+            <button class="btn-calc" onclick="checkFraudLink()"><i class="fas fa-search"></i> Check URL</button>
+          </div>
+          <div class="emi-result" id="fraudResult"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TRUST SECTION -->
+  <section class="trust-section">
+    <div class="trust-ticker-wrap">
+      <div class="trust-ticker">
+        <div class="trust-item"><i class="fas fa-check-circle"></i><span>Only Official Government Links</span></div>
+        <div class="trust-item"><i class="fas fa-ban"></i><span>No Middlemen</span></div>
+        <div class="trust-item"><i class="fas fa-lock"></i><span>Secure &amp; Transparent</span></div>
+        <div class="trust-item"><i class="fas fa-shield-alt"></i><span>Fraud-Free Information</span></div>
+        <div class="trust-item"><i class="fas fa-headset"></i><span>24/7 Support</span></div>
+        <div class="trust-item"><i class="fas fa-envelope"></i><span>Support Email: agrimitrasupport@gmail.com</span>
+        </div>
+        <!-- duplicate for seamless loop -->
+        <div class="trust-item"><i class="fas fa-check-circle"></i><span>Only Official Government Links</span></div>
+        <div class="trust-item"><i class="fas fa-ban"></i><span>No Middlemen</span></div>
+        <div class="trust-item"><i class="fas fa-lock"></i><span>Secure &amp; Transparent</span></div>
+        <div class="trust-item"><i class="fas fa-shield-alt"></i><span>Fraud-Free Information</span></div>
+        <div class="trust-item"><i class="fas fa-headset"></i><span>24/7 Support</span></div>
+        <div class="trust-item"><i class="fas fa-envelope"></i><span>Support Email: agrimitrasupport@gmail.com</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-brand">
+            <div class="brand-logo"><img src="logo.svg" alt="AgriMitra Logo" class="brand-logo-img" /></div>
+            <div class="brand-text"><span class="brand-name">AgriMitra</span><span class="brand-tagline">Farmer's
+                Digital Bridge</span></div>
+          </div>
+          <p class="footer-desc">India's trusted platform connecting farmers to official government schemes, subsidies
+            and loans.</p>
+          <div class="disclaimer-box"><i class="fas fa-exclamation-triangle"></i>
+            <p>DISCLAIMER: This is NOT an official government website. We only provide information and redirect users to
+              official government portals.</p>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h5>Central Schemes</h5>
+          <ul>
+            <li><a href="https://pmkisan.gov.in" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i>
+                PM-KISAN</a></li>
+            <li><a href="https://pmfby.gov.in" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i>
+                PM Fasal Bima</a></li>
+            <li><a href="https://www.myscheme.gov.in" target="_blank" rel="noopener"><i
+                  class="fas fa-external-link-alt"></i> Kisan Credit Card</a></li>
+            <li><a href="https://soilhealth.dac.gov.in" target="_blank" rel="noopener"><i
+                  class="fas fa-external-link-alt"></i> Soil Health Card</a></li>
+            <li><a href="https://pmksy.gov.in" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i>
+                PM Krishi Sinchai</a></li>
+            <li><a href="https://www.enam.gov.in" target="_blank" rel="noopener"><i
+                  class="fas fa-external-link-alt"></i> e-NAM</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h5>Finance &amp; Maharashtra</h5>
+          <ul>
+            <li><a href="https://www.nabard.org" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i>
+                NABARD</a></li>
+            <li><a href="https://agriinfra.dac.gov.in" target="_blank" rel="noopener"><i
+                  class="fas fa-external-link-alt"></i> Agri Infra Fund</a></li>
+            <li><a href="https://mahadbt.maharashtra.gov.in" target="_blank" rel="noopener"><i
+                  class="fas fa-external-link-alt"></i> MahaDBT Portal</a></li>
+            <li><a href="https://krishi.maharashtra.gov.in" target="_blank" rel="noopener"><i
+                  class="fas fa-external-link-alt"></i> Maharashtra Krishi</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="#schemes">Schemes</a></li>
+            <li><a href="#subsidies">Subsidies</a></li>
+            <li><a href="#loans">Loans</a></li>
+            <li><a href="#tools">Smart Tools</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 AgriMitra By E-Kisan. For informational purposes only. All scheme applications redirect to official
+          government portals.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCHEME DETAIL MODAL -->
+  <div class="modal-overlay" id="schemeModal" onclick="closeModalOutside(event,'schemeModal')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeSchemeModal()"><i class="fas fa-times"></i></button>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- LOGIN MODAL -->
+  <div class="modal-overlay" id="loginModal" onclick="closeModalOutside(event,'loginModal')">
+    <div class="modal-box modal-sm login-modal-box">
+      <button class="modal-close" onclick="closeLoginModal()"><i class="fas fa-times"></i></button>
+      <div class="electric-border">
+        <canvas id="electricCanvas"></canvas>
+      </div>
+      <div class="modal-content">
+        <div class="login-header">
+          <div class="login-logo"><img src="logo.svg" alt="AgriMitra Logo" class="login-logo-img" /></div>
+          <h3>AgriMitra Login</h3>
+          <p>Secure OTP-based farmer login</p>
+        </div>
+        <div class="login-form" id="loginForm">
+          <div class="form-group">
+            <label><i class="fas fa-mobile-alt"></i> Mobile Number</label>
+            <input type="tel" id="loginMobile" placeholder="Enter 10-digit mobile number" maxlength="10"
+              oninput="this.value=this.value.replace(/\D/g,'')" />
+          </div>
+          <div class="otp-section" id="otpSection" style="display:none">
+            <div class="form-group">
+              <label><i class="fas fa-key"></i> Enter OTP</label>
+              <div class="otp-inputs">
+                <input type="text" class="otp-box" maxlength="1" oninput="otpMove(this,1)" />
+                <input type="text" class="otp-box" maxlength="1" oninput="otpMove(this,2)" />
+                <input type="text" class="otp-box" maxlength="1" oninput="otpMove(this,3)" />
+                <input type="text" class="otp-box" maxlength="1" oninput="otpMove(this,4)" />
+                <input type="text" class="otp-box" maxlength="1" oninput="otpMove(this,5)" />
+                <input type="text" class="otp-box" maxlength="1" oninput="otpMove(this,6)" />
+              </div>
+            </div>
+            <div class="otp-timer" id="otpTimer">Resend OTP in <span id="timerCount">30</span>s</div>
+          </div>
+          <button class="btn-calc login-btn" id="loginBtn" onclick="handleLogin()"><i class="fas fa-paper-plane"></i>
+            Send OTP</button>
+        </div>
+        <div class="login-success" id="loginSuccess" style="display:none">
+          <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+          <h4>Login Successful!</h4>
+          <p>Welcome to AgriMitra, Farmer!</p>
+        </div>
+        <p class="login-note"><i class="fas fa-shield-alt"></i> Your data is safe. OTP-based secure login. No password
+          required.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD TRACKING MODAL -->
+  <div class="modal-overlay" id="trackModal" onclick="closeModalOutside(event,'trackModal')">
+    <div class="modal-box modal-sm">
+      <button class="modal-close" onclick="closeTrackModal()"><i class="fas fa-times"></i></button>
+      <div class="modal-content">
+        <h3 style="margin-bottom:20px"><i class="fas fa-plus-circle" style="color:var(--green)"></i> Add Application
+        </h3>
+        <div class="form-group"><label>Scheme Name</label><input type="text" id="trackSchemeName"
+            placeholder="e.g. PM-KISAN Registration" /></div>
+        <div class="form-group" style="margin-top:12px"><label>Status</label>
+          <select id="trackStatus">
+            <option value="pending">Pending</option>
+            <option value="inprogress">In Progress</option>
+            <option value="done">Completed</option>
+          </select>
+        </div>
+        <button class="btn-calc" style="margin-top:16px" onclick="saveTracking()"><i class="fas fa-save"></i>
+          Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMERGENCY HELP FAB -->
+  <div class="emergency-fab" onclick="toggleEmergencyHelp()" title="Emergency Help Support">
+    <i class="fas fa-headset"></i>
+    <div class="emergency-fab-badge"><i class="fas fa-question"></i></div>
+  </div>
+
+  <!-- EMERGENCY HELP MODAL -->
+  <div class="emergency-overlay" id="emergencyOverlay" onclick="toggleEmergencyHelp()"></div>
+  <div class="emergency-modal" id="emergencyModal">
+    <div class="emergency-modal-header">
+      <div><i class="fas fa-headset"></i> Emergency Help Support</div>
+      <button onclick="toggleEmergencyHelp()"><i class="fas fa-times"></i></button>
+    </div>
+    <p class="emergency-modal-sub">By AgriMitra Team — reach out to us anytime for help</p>
+    <div class="emergency-team-grid">
+      <div class="eteam-row">
+        <div class="eteam-card eteam-leader">
+          <div class="eteam-badge">Team Leader</div>
+          <div class="eteam-avatar"><img src="sanket.jpg" alt="Sanket Patu" /></div>
+          <div class="eteam-name">Sanket Shivshankar Patu</div>
+          <div class="eteam-info"><i class="fas fa-phone"></i> <a href="tel:9552254259">9552254259</a></div>
+          <div class="eteam-info"><i class="fas fa-envelope"></i> <a
+              href="mailto:sanketpatu361@gmail.com">sanketpatu361@gmail.com</a></div>
+          <div class="eteam-info"><i class="fas fa-map-marker-alt"></i> Keshegaon</div>
+        </div>
+        <div class="eteam-card">
+          <div class="eteam-badge eteam-member-badge">Member</div>
+          <div class="eteam-avatar"><img src="sakshi.jpg" alt="Sakshi Shitole" /></div>
+          <div class="eteam-name">Sakshi Swaminath Shitole</div>
+          <div class="eteam-info"><i class="fas fa-phone"></i> <a href="tel:7741014269">7741014269</a></div>
+          <div class="eteam-info"><i class="fas fa-envelope"></i> <a
+              href="mailto:sakshishitole19@gmail.com">sakshishitole19@gmail.com</a></div>
+          <div class="eteam-info"><i class="fas fa-map-marker-alt"></i> Akkalkot</div>
+        </div>
+
+
+
+      </div>
+      <div class="eteam-row">
+        <div class="eteam-card">
+          <div class="eteam-badge eteam-member-badge">Member</div>
+          <div class="eteam-avatar"><img src="Kishor.jpg" alt="Kishor Zende" /></div>
+          <div class="eteam-name">Kishor Tanaji Zende</div>
+          <div class="eteam-info"><i class="fas fa-phone"></i> <a href="tel:8767698132">8767698132</a></div>
+          <div class="eteam-info"><i class="fas fa-envelope"></i> <a
+              href="mailto:zendekishor933@gmail.com">zendekishor933@gmail.com</a></div>
+          <div class="eteam-info"><i class="fas fa-map-marker-alt"></i> Latur</div>
+        </div>
+        <div class="eteam-card">
+          <div class="eteam-badge eteam-member-badge">Member</div>
+          <div class="eteam-avatar"><img src="Samir.jpg" alt="Samir Galate" /></div>
+          <div class="eteam-name">Samir Maula Galate</div>
+          <div class="eteam-info"><i class="fas fa-phone"></i> <a href="tel:7666584076">7666584076</a></div>
+          <div class="eteam-info"><i class="fas fa-envelope"></i> <a
+              href="mailto:samirgalate2006@gmail.com">samirgalate2006@gmail.com</a></div>
+          <div class="eteam-info"><i class="fas fa-map-marker-alt"></i> Solapur</div>
+        </div>
+        <div class="eteam-card">
+          <div class="eteam-badge eteam-member-badge">Member</div>
+          <div class="eteam-avatar"><img src="shreyash Honrao.jpeg" alt="Shreyash Honrao" /></div>
+          <div class="eteam-name">Shreyash Rajkumar Honrao</div>
+          <div class="eteam-info"><i class="fas fa-phone"></i> <a href="tel:7517540740">7517540740</a></div>
+          <div class="eteam-info"><i class="fas fa-envelope"></i> <a
+              href="mailto:shreyashhonrao8@gmail.com">shreyashhonrao8@gmail.com</a></div>
+          <div class="eteam-info"><i class="fas fa-map-marker-alt"></i>Latur</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI CHATBOT -->
+  <div class="chatbot-fab" onclick="toggleChatbot()" id="chatFab">
+    <i class="fas fa-robot"></i>
+    <div class="fab-pulse"></div>
+  </div>
+  <div class="chatbot-window" id="chatbotWindow">
+    <div class="chatbot-header">
+      <div class="chatbot-title">
+        <div class="bot-avatar"><i class="fas fa-robot"></i></div>
+        <div><span>AgriBot</span><small>AI Assistant • Powered by Open Source AI</small></div>
+      </div>
+      <button onclick="toggleChatbot()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="chatbot-messages" id="chatMessages">
+      <div class="bot-msg">🌾 Namaste! I'm <strong>AgriBot</strong>, your AI farming assistant.<br /><br />I can help
+        you with:<br />• Government schemes &amp; subsidies<br />• Loan information<br />• General farming
+        questions<br />• Any other queries!<br /><br />What would you like to know?</div>
+    </div>
+    <div class="chat-suggestions">
+      <button onclick="quickChat('PM Kisan scheme details')">PM Kisan</button>
+      <button onclick="quickChat('crop insurance')">Crop Insurance</button>
+      <button onclick="quickChat('Maharashtra subsidies')">MH Subsidies</button>
+    </div>
+    <div class="chat-lang-select">
+      <select id="chatLang" title="Select language" onchange="changeChatLang(this.value)">
+        <option value="english">🇬🇧 English</option>
+        <option value="hindi">🇮🇳 हिंदी</option>
+        <option value="marathi">🟠 मराठी</option>
+      </select>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="chatInput" placeholder="Ask anything..." onkeypress="chatEnter(event)" />
+      <button onclick="sendChat()" id="chatSendBtn"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i
+      class="fas fa-arrow-up"></i></button>
+
+  <!-- CONTACT US MODAL -->
+  <div class="modal-overlay" id="contactModal" onclick="closeModalOutside(event,'contactModal')">
+    <div class="modal-box modal-sm">
+      <button class="modal-close" onclick="closeContactModal()"><i class="fas fa-times"></i></button>
+      <div class="modal-content" id="contactFormWrap">
+        <div class="contact-header">
+          <div class="contact-icon"><i class="fas fa-headset"></i></div>
+          <h3>Contact Us</h3>
+          <p>We're here to help. Fill the form and we'll get back to you.</p>
+        </div>
+        <div class="contact-form">
+          <div class="form-group">
+            <label><i class="fas fa-user"></i> Full Name</label>
+            <input type="text" id="ct-name" placeholder="Enter your full name" />
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-envelope"></i> Email Address</label>
+            <input type="email" id="ct-email" placeholder="Enter your email" />
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-mobile-alt"></i> Mobile Number</label>
+            <input type="tel" id="ct-mobile" placeholder="10-digit mobile number" maxlength="10"
+              oninput="this.value=this.value.replace(/\D/g,'')" />
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-list-alt"></i> Query Type <small
+                style="color:var(--gray-500);font-weight:400">(Select all that apply)</small></label>
+            <div class="ct-query-grid" id="ct-query">
+              <label class="ct-query-chip"><input type="checkbox" value="PM-KISAN Scheme" /><i
+                  class="fas fa-rupee-sign"></i> PM-KISAN Scheme</label>
+              <label class="ct-query-chip"><input type="checkbox" value="Crop Insurance (PMFBY)" /><i
+                  class="fas fa-umbrella"></i> Crop Insurance</label>
+              <label class="ct-query-chip"><input type="checkbox" value="Kisan Credit Card" /><i
+                  class="fas fa-credit-card"></i> Kisan Credit Card</label>
+              <label class="ct-query-chip"><input type="checkbox" value="Subsidy Information" /><i
+                  class="fas fa-tags"></i> Subsidy Info</label>
+              <label class="ct-query-chip"><input type="checkbox" value="Loan Enquiry" /><i
+                  class="fas fa-university"></i> Loan Enquiry</label>
+              <label class="ct-query-chip"><input type="checkbox" value="MahaDBT Portal" /><i class="fas fa-star"></i>
+                MahaDBT Portal</label>
+              <label class="ct-query-chip"><input type="checkbox" value="7/12 Extract" /><i class="fas fa-file-alt"></i>
+                7/12 Extract</label>
+              <label class="ct-query-chip"><input type="checkbox" value="Irrigation Scheme" /><i
+                  class="fas fa-tint"></i> Irrigation</label>
+              <label class="ct-query-chip"><input type="checkbox" value="Soil Health Card" /><i
+                  class="fas fa-flask"></i> Soil Health</label>
+              <label class="ct-query-chip"><input type="checkbox" value="Technical Issue" /><i class="fas fa-tools"></i>
+                Technical Issue</label>
+              <label class="ct-query-chip"><input type="checkbox" value="e-NAM Market" /><i class="fas fa-store"></i>
+                e-NAM Market</label>
+              <label class="ct-query-chip"><input type="checkbox" value="Other" /><i class="fas fa-ellipsis-h"></i>
+                Other</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-comment-alt"></i> Message</label>
+            <textarea id="ct-message" placeholder="Describe your query in detail..." rows="4"></textarea>
+          </div>
+          <button class="btn-calc" onclick="submitContact()"><i class="fas fa-paper-plane"></i> Submit Query</button>
+        </div>
+      </div>
+      <div class="contact-success" id="contactSuccess" style="display:none">
+        <div class="contact-success-icon"><i class="fas fa-check-circle"></i></div>
+        <h3>Query Submitted Successfully!</h3>
+        <p>Thank you for reaching out. Our team will contact you shortly.</p>
+        <div class="ticket-box">
+          <span>Your Ticket Number</span>
+          <strong id="ticketNumber"></strong>
+        </div>
+        <p style="font-size:0.78rem;color:var(--gray-500);margin-top:12px">Please save this ticket number for future
+          reference.</p>
+        <button class="btn-calc" style="margin-top:16px;width:100%;justify-content:center"
+          onclick="closeContactModal()"><i class="fas fa-times"></i> Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- OCR upload input (hidden) -->
+  <input type="file" id="ocrFileInput" accept=".pdf,.jpg,.jpeg,.png" style="display:none"
+    onchange="processOCRDocument(event)" />
+
+  <!-- Profile nudge banner -->
+  <div id="profileNudge"
+    style="display:none;position:fixed;bottom:180px;right:28px;background:white;border:1.5px solid var(--green);border-radius:12px;padding:12px 16px;z-index:1400;box-shadow:var(--shadow-lg);max-width:260px;font-size:0.82rem;align-items:center;gap:10px">
+    <i class="fas fa-user-circle" style="color:var(--green);font-size:1.3rem;flex-shrink:0"></i>
+    <div><strong>Complete your profile</strong><br /><span style="color:var(--gray-600)">Get personalized scheme
+        recommendations</span></div>
+    <button onclick="document.getElementById('profileNudge').style.display='none';openLoginModal()"
+      style="background:var(--green);color:white;border:none;padding:5px 10px;border-radius:7px;font-size:0.76rem;font-weight:700;cursor:pointer;white-space:nowrap;margin-top:6px">Complete
+      Now</button>
+    <button onclick="document.getElementById('profileNudge').style.display='none'"
+      style="position:absolute;top:6px;right:8px;background:none;border:none;cursor:pointer;color:var(--gray-400);font-size:0.8rem"><i
+        class="fas fa-times"></i></button>
+  </div>
+
+  <script src="index.js"></script>
+  <script src="features.js"></script>
+</body>
+
+</html>

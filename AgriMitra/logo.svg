@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Background circle (transparent for use on any bg) -->
+
+  <!-- Left leaf -->
+  <path d="M30 130 Q10 90 40 65 Q55 55 70 70 Q80 80 75 105 Q70 120 55 130 Z" fill="#3a5c1a"/>
+  <!-- Left leaf circuit line -->
+  <line x1="52" y1="95" x2="68" y2="115" stroke="#1a2e0a" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="52" cy="93" r="4" fill="#1a2e0a"/>
+
+  <!-- Right leaf -->
+  <path d="M170 130 Q190 90 160 65 Q145 55 130 70 Q120 80 125 105 Q130 120 145 130 Z" fill="#3a5c1a"/>
+  <!-- Right leaf circuit line -->
+  <line x1="148" y1="95" x2="132" y2="115" stroke="#1a2e0a" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="148" cy="93" r="4" fill="#1a2e0a"/>
+
+  <!-- Center tall leaf -->
+  <path d="M100 20 Q115 50 118 80 Q120 100 100 115 Q80 100 82 80 Q85 50 100 20 Z" fill="#4a7a20"/>
+  <!-- Center leaf circuit line -->
+  <line x1="100" y1="55" x2="100" y2="100" stroke="#1a2e0a" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="100" cy="53" r="4" fill="#1a2e0a"/>
+
+  <!-- Stem -->
+  <line x1="100" y1="115" x2="100" y2="148" stroke="#1a2e0a" stroke-width="3" stroke-linecap="round"/>
+  <!-- Left stem branch -->
+  <line x1="100" y1="135" x2="68" y2="148" stroke="#1a2e0a" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Right stem branch -->
+  <line x1="100" y1="135" x2="132" y2="148" stroke="#1a2e0a" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Water waves -->
+  <path d="M40 158 Q55 150 70 158 Q85 166 100 158 Q115 150 130 158 Q145 166 160 158" stroke="#3a5c1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M50 170 Q65 162 80 170 Q95 178 110 170 Q125 162 140 170 Q150 175 155 170" stroke="#3a5c1a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg>

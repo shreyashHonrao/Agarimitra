@@ -1,0 +1,13 @@
+{
+  "name": "AgriMitra - Farmer Platform",
+  "short_name": "AgriMitra",
+  "description": "India's trusted platform for farmers - Government schemes, subsidies and loans",
+  "start_url": "/AgriMitra/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2E7D32",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "logo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
